@@ -80,13 +80,16 @@ private FirebaseAuth mAuth;
 
         }
         else if(Phone.isEmpty()){
-            Toast.makeText(getContext(), "Enter Phone No !!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Enter Phone No in +91xxxxxxxxxx!!", Toast.LENGTH_SHORT).show();
             pd.dismiss();
 
         }
-        else if(Phone.length()!=10){
-            Toast.makeText(getContext(), "Phone Length is 10 digits", Toast.LENGTH_SHORT).show();
+
+        else if((Phone.length()>11 && Phone.length()<13)) {
+
+            Toast.makeText(getContext(), "Please enter valid 10 digit phone number", Toast.LENGTH_SHORT).show();
             pd.dismiss();
+
         }
         else if(Password.isEmpty()){
             Toast.makeText(getContext(), "Enter Password !!", Toast.LENGTH_SHORT).show();
