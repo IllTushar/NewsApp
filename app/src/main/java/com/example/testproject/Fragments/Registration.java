@@ -26,7 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class Registration extends Fragment {
-private EditText name,email,password;
+private EditText name,email,password,phone;
 private CheckBox checkBox;
 private Button btnRegistration;
 private FirebaseAuth mAuth;
@@ -40,6 +40,7 @@ private FirebaseAuth mAuth;
         email = view.findViewById(R.id.Email);
         password = view.findViewById(R.id.Password);
         checkBox =view.findViewById(R.id.checkbox);
+        phone = view.findViewById(R.id.Phone);
         mAuth = FirebaseAuth.getInstance();
         btnRegistration = view.findViewById(R.id.registration);
 
@@ -67,6 +68,7 @@ private FirebaseAuth mAuth;
         String Name = name.getText().toString().trim();
         String Email = email.getText().toString().trim();
         String Password = password.getText().toString().trim();
+        String Phone = phone.getText().toString().trim();
         if (Name.isEmpty()){
             Toast.makeText(getContext(), "Enter Name !!", Toast.LENGTH_SHORT).show();
             pd.dismiss();
@@ -76,6 +78,15 @@ private FirebaseAuth mAuth;
             Toast.makeText(getContext(), "Enter Email !!", Toast.LENGTH_SHORT).show();
             pd.dismiss();
 
+        }
+        else if(Phone.isEmpty()){
+            Toast.makeText(getContext(), "Enter Phone No !!", Toast.LENGTH_SHORT).show();
+            pd.dismiss();
+
+        }
+        else if(Phone.length()!=10){
+            Toast.makeText(getContext(), "Phone Length is 10 digits", Toast.LENGTH_SHORT).show();
+            pd.dismiss();
         }
         else if(Password.isEmpty()){
             Toast.makeText(getContext(), "Enter Password !!", Toast.LENGTH_SHORT).show();
@@ -94,6 +105,7 @@ private FirebaseAuth mAuth;
                                name.setText("");
                                email.setText("");
                                password.setText("");
+                               phone.setText("");
                             }
                         }
                     })
