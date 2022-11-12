@@ -85,7 +85,7 @@ private FirebaseAuth mAuth;
 
         }
 
-        else if((Phone.length()>11 && Phone.length()<13)) {
+        else if((Phone.length()>9 && Phone.length()<13)) {
 
             Toast.makeText(getContext(), "Please enter valid 10 digit phone number", Toast.LENGTH_SHORT).show();
             pd.dismiss();
